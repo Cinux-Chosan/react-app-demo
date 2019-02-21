@@ -1,10 +1,16 @@
-const util = require('util');
-
+const { override, fixBabelImports, addWebpackAlias } = require('customize-cra');
+const { resolve } = require('path');
 
 /* config-overrides.js */
-
-module.exports = function override(config, env) {
-    //do stuff with the webpack config...
-    console.log(util.inspect(config.rules, { showHidden: true, depth: null }))
-    return config;
-}
+module.exports = override(
+    fixBabelImports('import', {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: 'css',
+    }),
+    addWebpackAlias({
+        "@pages": resolve(__dirname, "src/pages"),
+        "@utils": resolve(__dirname, "src/utils"),
+        "@components": resolve(__dirname, "src/component"),
+    })
+);
