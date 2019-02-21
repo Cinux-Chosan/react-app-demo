@@ -1,5 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { Spin } from 'antd';
+import BasicLayout from '@components/BasicLayout';
 import styles from './App.module.scss';
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
             </div>
           }
         >
-          {this.props.yield}
+          <BasicLayout>{this.props.yield}</BasicLayout>
         </Suspense>
       </>
     );
