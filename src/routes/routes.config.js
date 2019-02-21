@@ -2,7 +2,7 @@
  * @Author: Chosan.Zhangjianjun
  * @Date: 2019-02-21 17:20:55
  * @Last Modified by: Chosan.Zhangjianjun
- * @Last Modified time: 2019-02-21 17:43:22
+ * @Last Modified time: 2019-02-21 19:08:16
  */
 
 import React, { lazy } from 'react';
@@ -21,7 +21,7 @@ export default {
       routes: [
         {
           path: 'demo',
-          component: lazy(() => import('../pages/Demo'))
+          component: lazy(() => import('@pages/Demo'))
         },
         {
           path: 'a',
@@ -38,10 +38,6 @@ export default {
         {
           path: 'b',
           component: () => 'bbbbb'
-        },
-        {
-          path: 'testButton',
-          component: lazy(() => import('../components/Button'))
         },
         {
           type: 'redirect',

@@ -7,12 +7,10 @@ import Content from '@components/Content';
 export default class extends Component {
   render() {
     return (
-      <Layout>
+      <Layout className="h100p">
         <Header />
-
         <Layout>
           <Sider />
-
           <Layout>{this.props.children}</Layout>
         </Layout>
       </Layout>
