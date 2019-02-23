@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import Header from '@components/Header';
-import Sider from '@components/Sider';
-import Content from '@components/Content';
+import Header from './Header';
+import Sider from './Sider';
+import Content from './Content';
 
 export default class extends Component {
   render() {
@@ -11,7 +11,9 @@ export default class extends Component {
         <Header />
         <Layout>
           <Sider />
-          <Layout>{this.props.children}</Layout>
+          <Layout>
+            <Content>{this.props.children}</Content>
+          </Layout>
         </Layout>
       </Layout>
     );
