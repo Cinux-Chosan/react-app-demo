@@ -1,14 +1,23 @@
+// https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md
+import 'react-app-polyfill/ie9';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.module.scss';
-import MapRoutes from './routes/mapRoutes';
 import * as serviceWorker from './serviceWorker';
 import { HashRouter as Router } from 'react-router-dom';
+import { combineReducers, createStore } from 'redux';
+import { Provider } from 'react-redux';
+import MapRoutes from './routes/mapRoutes';
+import rootReducer from './reducers';
+import './index.module.scss';
+
+const store = createStore(combineReducers(rootReducer));
 
 ReactDOM.render(
-  <Router>
-    <MapRoutes />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <MapRoutes />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

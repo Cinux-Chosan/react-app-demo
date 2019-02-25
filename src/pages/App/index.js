@@ -1,9 +1,11 @@
 import React, { Component, Suspense } from 'react';
 import { Spin } from 'antd';
 import styles from './App.module.scss';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
+    console.log(this.props);
     return (
       <>
         <Suspense
@@ -20,4 +22,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(({ app }) => ({ app }))(App);
