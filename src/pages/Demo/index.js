@@ -3,6 +3,8 @@ import Button from '../../components/Button';
 import styles from './style.module.scss';
 import { connect } from 'react-redux';
 
+import { Demo as D } from 'react-plugin-demo';
+
 export class Demo extends Component {
   componentDidMount() {
     this.props.dispatch({
@@ -16,6 +18,7 @@ export class Demo extends Component {
     return (
       <div className={styles.demo}>
         {this.props.demo.name}
+        <D hi="this is a  demo" />
         <Button />
       </div>
     );
