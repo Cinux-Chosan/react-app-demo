@@ -2,27 +2,25 @@ import React, { Component } from 'react';
 import Button from '../../components/Button';
 import styles from './style.module.scss';
 import { connect } from 'react-redux';
-
-import { Demo as D } from 'react-plugin-demo';
+import { FETCH_USER_INFO } from '@localActions';
+import { action } from '@localRedux';
 
 export class Demo extends Component {
-  componentDidMount() {
-    this.props.dispatch({
-      type: 'demo',
-      payload: {
-        data: 1
-      }
-    });
-  }
+  onClick = () => action({ type: FETCH_USER_INFO });
+
   render() {
+    const {
+      userInfo: { userName }
+    } = this.props;
     return (
       <div className={styles.demo}>
-        {this.props.demo.name}
-        <D hi="this is a  demo" />
-        <Button />
+        {userName
+          ? `当前用户名为：${userName}`
+          : '（redux-saga演示）点击下方任意按钮获取用户名'}
+        <Button onClick={this.onClick} />
       </div>
     );
   }
 }
 
-export default connect(({ demo }) => ({ demo }))(Demo);
+export default connect(({ userInfo }) => ({ userInfo }))(Demo);

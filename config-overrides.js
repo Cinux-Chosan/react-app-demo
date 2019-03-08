@@ -14,5 +14,7 @@ module.exports = override(
         "@pages": resolve(__dirname, "src/pages"),
         "@utils": resolve(__dirname, "src/utils"),
         "@components": resolve(__dirname, "src/component"),
+        "@localRedux": resolve(__dirname, "src/redux"),
+        "@localActions$": resolve(__dirname, "src/redux/actions/actionType.js")
     })
 );

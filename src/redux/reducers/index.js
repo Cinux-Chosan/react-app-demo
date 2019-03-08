@@ -5,19 +5,14 @@
  * @Last Modified time: 2019-03-06 10:21:01
  */
 
-// root reducers
+import { SAVE_USER_INFO } from '@localActions';
 
-// class RootReducers {
-//   registeReducer (reducers) {
-//     Object.entries(reducers).forEach(([key, reducer]) => {
-//       this[key] = reducer;
-//     })
-//   }
-// }
-
-export const demo = (state = {}, action) => {
-  if (action.type === 'demo') {
-    return { ...state, name: action.type };
+export const userInfo = (state = { userName: '' }, action) => {
+  if (action.type === SAVE_USER_INFO) {
+    const {
+      userInfo: { userName }
+    } = action;
+    return { ...state, userName };
   }
   return state;
 };

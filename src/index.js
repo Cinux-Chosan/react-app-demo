@@ -4,22 +4,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { HashRouter as Router } from 'react-router-dom';
-import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
 import MapRoutes from './routes/mapRoutes';
-import rootSaga from './redux/sagas';
-import * as rootReducer from './redux/reducers';
+import store from './redux';
 import './index.module.scss';
-
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  combineReducers(rootReducer),
-  {},
-  applyMiddleware(sagaMiddleware)
-);
-
-sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
