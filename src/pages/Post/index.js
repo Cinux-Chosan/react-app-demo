@@ -42,7 +42,7 @@ export class Post extends Component {
         <h1 className={styles.title}>{title}</h1>
         <Divider orientation="right">
           <span className={styles.dividerText}>
-            文章创建于 {timeFormat(createTime)}，最后更新于{' '}
+            文章创建于 {timeFormat(createTime)}， 最后更新于{' '}
             {timeFormat(lastUpdateTime)}
           </span>
         </Divider>
