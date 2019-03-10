@@ -9,9 +9,12 @@
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
     "react": "^16.8.2",
+    "react-app-polyfill": "^0.2.1",
     "react-dom": "^16.8.2",
+    "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "eject": "react-scripts eject",
@@ -43,6 +46,10 @@
   "devDependencies": {
     "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.11",
-    "react-app-rewired": "^2.1.0"
+    "marked": "^0.6.1",
+    "query-string": "^6.3.0",
+    "react-app-rewired": "^2.1.0",
+    "redux-saga": "^1.0.2",
+    "whatwg-fetch": "^3.0.0"
   }
 }

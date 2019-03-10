@@ -55,11 +55,9 @@ function mapRoutes(routes, parentPath = '') {
             key={index}
             path={fullPath}
             {...rest}
-            render={props => {
-              return (
-                <Component {...props} yield={mapRoutes(subRoutes, fullPath)} />
-              );
-            }}
+            render={props => (
+              <Component {...props} yield={mapRoutes(subRoutes, fullPath)} />
+            )}
           />
         );
         break;

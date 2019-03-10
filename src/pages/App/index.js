@@ -2,8 +2,9 @@ import React, { Component, Suspense } from 'react';
 import { Spin } from 'antd';
 import BasicLayout from '@components/BasicLayout';
 import styles from './App.module.scss';
+import { connect } from 'react-redux';
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <>
@@ -21,4 +22,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(({ app }) => ({ app }))(App);
