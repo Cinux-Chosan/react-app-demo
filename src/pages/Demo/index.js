@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Button from '../../components/Button';
+import Button from '@components/Button';
 import styles from './style.module.scss';
 import { connect } from 'react-redux';
 import { FETCH_USER_INFO } from '@localActions';
 import { action } from '@localRedux';
 
 export class Demo extends Component {
-  onClick = () => action({ type: FETCH_USER_INFO });
+  onClick = () => action(FETCH_USER_INFO);
 
   render() {
     const {

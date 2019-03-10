@@ -13,7 +13,7 @@ module.exports = override(
     addWebpackAlias({
         "@pages": resolve(__dirname, "src/pages"),
         "@utils": resolve(__dirname, "src/utils"),
-        "@components": resolve(__dirname, "src/component"),
+        "@components": resolve(__dirname, "src/components"),
         "@localRedux": resolve(__dirname, "src/redux"),
         "@localActions$": resolve(__dirname, "src/redux/actions/actionType.js")
     })
