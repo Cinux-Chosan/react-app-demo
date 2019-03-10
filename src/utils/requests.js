@@ -1,6 +1,8 @@
 import { fetch } from 'whatwg-fetch';
 import { parseUrl, stringify } from 'query-string';
 
+const baseURI = 'https://chosan.cn/api/';
+
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -12,9 +14,9 @@ function checkStatus(response) {
 }
 
 export default async (url, payloads, method = 'GET') => {
-  const { url: pureUrl, query } = parseUrl(url);
+  let reqUrl = url.indexOf('http') ? baseURI + url : url;
+  const { url: pureUrl, query } = parseUrl(reqUrl);
   const options = { method };
-  let reqUrl = url;
   switch (method.toUpperCase()) {
     case 'GET':
     case 'HEAD':

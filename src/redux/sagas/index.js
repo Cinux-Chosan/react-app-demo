@@ -10,18 +10,13 @@ import {
 import fetch from '@fetch';
 
 function* fetchCategories() {
-  const { data: categories } = yield call(
-    fetch,
-    'https://chosan.cn/api/categories'
-  );
+  const { data: categories } = yield call(fetch, 'categories');
   yield put({ type: SAVE_CATEGORIES, categories });
 }
 
 function* fetchPostsByCategory(action) {
   const { payloads: cate } = action;
-  const { data: posts } = yield call(fetch, 'https://chosan.cn/api/posts', {
-    cate
-  });
+  const { data: posts } = yield call(fetch, 'posts', { cate });
   yield put({ type: SAVE_POSTS_BY_CATEGORY, posts, cate });
 }
 
@@ -33,10 +28,7 @@ function fetchPostById() {
     if (cachedPost) {
       yield put({ type: SAVE_POST, post: cachedPost });
     } else {
-      const { data: post } = yield call(
-        fetch,
-        `https://chosan.cn/api/posts/${postId}`
-      );
+      const { data: post } = yield call(fetch, `posts/${postId}`);
       postsCache[postId] = post;
       yield put({ type: SAVE_POST, post });
     }

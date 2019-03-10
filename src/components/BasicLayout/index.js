@@ -11,7 +11,7 @@ export default class extends Component {
         <Header />
         <Layout>
           <Sider />
-          <Layout>
+          <Layout id="content-layout">
             <Content>{this.props.children}</Content>
           </Layout>
         </Layout>

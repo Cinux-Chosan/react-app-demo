@@ -15,7 +15,7 @@ import Post from '@pages/Post';
 // type: undeinfed（无 type），代表页面，必须有 path 和 component 属性，用于 React-Router#Route
 
 // https://itnext.io/async-react-using-react-router-suspense-a86ade1176dc
-const lazyImport = filename => lazy(() => import(`${filename}`));
+export const lazyImport = filename => lazy(() => import(`${filename}`));
 
 export default {
   path: '/',

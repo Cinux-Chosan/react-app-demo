@@ -49,7 +49,12 @@ class Sider extends React.Component {
         _id,
         attributes: { title }
       } = menu;
-      return <Menu.Item key={_id}>{title}</Menu.Item>;
+      return (
+        <Menu.Item key={_id}>
+          <Icon type="file-text" />
+          {title}
+        </Menu.Item>
+      );
     } else {
       const { _id, name, children = [] } = menu;
       return (
@@ -57,7 +62,7 @@ class Sider extends React.Component {
           key={_id}
           title={
             <span>
-              <Icon type="mail" />
+              <Icon type="snippets" />
               <span>{name}</span>
             </span>
           }
