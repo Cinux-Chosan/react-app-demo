@@ -25,16 +25,26 @@ function* fetchPostsByCategory(action) {
   yield put({ type: SAVE_POSTS_BY_CATEGORY, posts, cate });
 }
 
-function* fetchPostById(action) {
-  const { payloads: postId } = action;
-  const { data: post } = yield call(
-    fetch,
-    `https://chosan.cn/api/posts/${postId}`
-  );
-  yield put({ type: SAVE_POST, post });
+function fetchPostById() {
+  const postsCache = {};
+  return function*(action) {
+    const { payloads: postId } = action;
+    const cachedPost = postsCache[postId];
+    if (cachedPost) {
+      yield put({ type: SAVE_POST, post: cachedPost });
+    } else {
+      const { data: post } = yield call(
+        fetch,
+        `https://chosan.cn/api/posts/${postId}`
+      );
+      postsCache[postId] = post;
+      yield put({ type: SAVE_POST, post });
+    }
+  };
 }
+
 export default function* rootSaga() {
   yield takeLatest(FETCH_CATEGORIES, fetchCategories);
   yield takeLatest(FETCH_POSTS_BY_CATEGORY, fetchPostsByCategory);
-  yield takeLatest(FETCH_POST_BY_ID, fetchPostById);
+  yield takeLatest(FETCH_POST_BY_ID, fetchPostById());
 }
