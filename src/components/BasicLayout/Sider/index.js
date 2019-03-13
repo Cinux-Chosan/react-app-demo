@@ -16,6 +16,7 @@ export default class extends Component {
         // collapsible={true}
         collapsed={this.state.collapsed}
         onCollapse={this.onCollapse}
+        width={300}
       >
         <SiderContent />
       </Sider>
