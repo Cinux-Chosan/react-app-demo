@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Collapse } from 'antd';
+
+console.log(Collapse);
 
 export default () => (
   <div>
